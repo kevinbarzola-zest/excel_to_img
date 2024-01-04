@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email</title>
+</head>
+<body>
+    <div>
+        <h4><u>Monitor Renta Variable</u></h4>
+        <img src="test_1.jpg"></br></br>
+        <img src="test_2.jpg"></br></br></br>
+        <h4><u>Monitor Renta Fija</u></h4>
+        <img src="test_3.jpg"></br></br>
+        <img src="test_4.jpg"></br></br></br>
+        <h4><u>Monitor Roll</u></h4>
+        <img src="test_5.jpg"></br></br>
+        <img src="test_6.jpg"></br></br></br>
+        <h4><u>Monitor de Observaciones</u></h4>
+        <img src="test_7.jpg"></br></br></br>
+        <h4><u>Tabla % de portafolio por emisor</u></h4>
+        <img src="test_8.jpg"></br></br></br>
+        <h4><u>Valorización RV – Seguimiento diario*</u></h4>
+        <img src="test_9.jpg"></br></br></br>
+        <h4><u>Monitor de eventos esperados</u></h4>
+        <img src="test_10.jpg"></br></br></br>
+    </div>
+    <div>
+        <h4><u>Guía : ¿Cómo leer los colores del monitor de renta variable?</u></h4>
+        <ol>
+            <li>
+                Línea entera
+                </br>
+                <ul>
+                    <li>Roja : el evento knock-in debería ocurrir, con precios actuales.</li>
+                    <li>Naranja : el evento knock-in no debería ocurrir pero el cupón no debería ser pagado, con precios actuales.</li>
+                    <li>Azul: el evento autocall podría ocurrir con precios actuales y en los siguientes 30 días.</li>
+                </ul>
+            </li>
+            <li>
+                “Fecha de inicio”
+                </br>
+                <ul><li>Verde : hace menos de 45 días que se inició la nota.</li></ul>
+            </li>
+            <li>
+                “Fechas de observación: 1ero Autocall”
+                </br>
+                <ul><li>Gris : No hubo de observación de autocall, por el momento.</li></ul>
+            </li>
+            <li>
+                Fondo de “Fechas de observación: Próxima”
+                </br>
+                <ul>
+                    <li>Amarillo oscuro : próxima observación en 7 días o menos.</li>
+                    <li>Amarillo claro: próxima observación entre 7 días y 14 días.</li>
+                </ul>
+            </li>
+            <li>
+                Letras de “Fechas de observación: Próxima”
+                </br>
+                <ul>
+                    <li>Verde: la nota pagó a la observación precedente.</li>
+                    <li>Rojo: la nota no pagó a la observación precedente.</li>
+                </ul>
+            </li>
+            <li>
+                “Rendimiento: hoy, ayer o 30 días hasta hoy"
+                </br>
+                <ul>
+                    <li>Verde: positivo.</li>
+                    <li>Rojo: negativo.</li>
+                </ul>
+            </li>
+            <li>
+                “Compañía: Precio en % vs inicial”: hoy o ayer"
+                </br>
+                <ul>
+                    <li>Verde claro: más de 100.</li>
+                    <li>Naranja: entre 50 y 65.</li>
+                    <li>Rojo: menos de 50.</li>
+                </ul>
+            </li>
+            <li>
+                “Notas: Precio ayer(%)”
+                </br>
+                <ul>
+                    <li>Verde oscuro: más de 102.</li>
+                    <li>Verde claro: entre 95 y 102.</li>
+                    <li>Naranja: entre 50 y 65.</li>
+                    <li>Rojo: menos de 50.</li>
+                </ul>
+            </li>
+            <li>
+                Nombre
+                </br>
+                <ul>
+                    <li>Amarillo: Hoy se dio un evento de autocall.</li>
+                    <li>Verde oscuro: el evento autocall  debería ocurrir, con precios actuales y la siguiente fecha
+                        de observación es posible que ocurra un evento de autocall en los siguientes 30 días.</li>
+                    <li>Verde claro: el evento autocall  debería ocurrir, con precios actuales y la siguiente fecha
+                        de observación NO es posible que ocurra un evento de autocall en los siguientes 30 días.</li>
+                    <li>Naranja: el evento knock-in no debería ocurrir pero el cupón no debería ser pagado,
+                        con precios actuales.</li>
+                    <li>Rojo: el evento knock-in debería ocurrir, con precios actuales.</li>
+                </ul>
+            </li>
+            <li>
+                Última
+                </br>
+                <ul>
+                    <li>Rojo claro: la nota esta en su mes de vencimiento.</li>
+                    <li>Naranja claro: la nota esta a tres meses de su vencimiento.</li>
+                </ul>
+            </li>
+        </ol>
+        <h4><u>Guía: Monitor Roll</u></h4>
+        <p>
+            El monitor destaca los spreads de precios de notas en una matriz, suponiendo que queremos vender una nota
+            con un vencimiento corto (A3 es la excepción) y comprar una nota con un vencimiento largo.
+        </p>
+        <ul>
+            <li>Notas a vender : notas con un vencimiento restante de < 1 año  (+ nota A3).</li>
+            <li>Notas a comprar : notas por las cuales podemos aumentar el tamaño.</li>
+        </ul>
+        <h5>Código color:</h5>
+        <ul>
+            <li>Roja: el spread es menos que -10.</li>
+            <li>Naranja: el spread es entre  -10 y 0.</li>
+            <li>Verde: el spread es mayor que 0  => atractivo para hacer un roll.</li>
+        </ul>
+        <p>Cuadro de mejoras de oportunidades durante los últimos 7 días : solo sobre D10, D8, C3.</p>
+        <p>Precios utilizados = precios de ayer con un mid-offer (Comprar) y un bid-mid (Vender) de 2% de nocional.</p>
+
+        <h4><u>Guía: Monitor de Observaciones</u></h4>
+        <ul>
+            <li>Fecha de Observación: muestra los días hábiles dentro del próximo mes, partiendo del día actual.</li>
+            <li>Notas que observan: muestra las notas que observan en el día señalado.</li>
+            <li>Notas que requieren análisis: muestra las notas que observan en el día señalado y que tienen algún subyacente bajo la barrera cupón.</li>
+            <li>Empresas bajo barrera cupón: menciona las empresas bajo la barrera cupón de las notas que observan en el día señalado.</li>
+            <li>Analista: muestra el número de potenciales análisis a realizar bajo la responsabilidad de cada analista.</li>
+        </ul>
+
+        <h4><u>Guía: Tabla % de portafolio por emisor</u></h4>
+        <ul>
+            <li>Emisores: Entidad financiera emisora de notas.</li>
+            <li>Participación en el portafolio: Porcentaje de participación de la entidad financiera dentro del portafolio.</li>
+        </ul>
+        <h5>Código color:</h5>
+        <ul>
+            <li>Rojo: concentración alta de portafolio .</li>
+            <li>Amarillo: concentración media de portafolio.</li>
+            <li>Verde: concentración baja de portafolio.</li>
+        </ul>
+
+        <h4><u>Guía: Valorización RV – Seguimiento diario</u></h4>
+        <p>Notas individuales (Renta variable y Renta fija)</p>
+        <ul>
+            <li>AUM Nominal: Valor nominal del portafolio de notas calculado sobre las cantidades al cierre del mes anterior.</li>
+            <li>AUM Mercado (Cierre del mes): Valor de mercado del portafolio de notas calculado sobre las cantidades
+                al cierre del mes anterior y los precios de mercado al cierre del mes anterior.</li>
+            <li>AUM Mercado (diario): Valor de mercado del portafolio de notas calculado sobre las cantidades al cierre
+                del mes anterior y los precios de mercado al cierre de hoy.</li>
+            <li>MTD: Retorno mensual del portafolio a valor de mercado desde el cierre del mes anterior al cierre de hoy.
+                Un valor positivo indica una ganancia en valorización del portafolio por apreciación de las notas vigentes.</li>
+        </ul>
+        <p>Fondo ZE</p>
+        <ul>
+            <li>MTD Fondo ZE: Valor cuota del portal Atlas al día anterior entre valor cuota al cierre del mes.</li>
+            <li>1D Fondo ZE: Valor cuota del portal Atlas al día anterior entre valor cuota de hace dos días.</li>
+        </ul>
+    </div>
+</body>
+</html>
