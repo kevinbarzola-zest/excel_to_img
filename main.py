@@ -13,11 +13,11 @@ def get_height_of_table(ws, first_row, col, row_offset, col_offset):
     h = row_offset - 1
     this_row = first_row + row_offset
     cell_val = ws.cells(this_row, col + col_offset).value
-    print(f"Fila {this_row}")
+    #print(f"Fila {this_row}")
     while cell_val:
         h += 1
         this_row += 1
-        print(f"Fila {this_row}")
+        #print(f"Fila {this_row}")
         cell_val = ws.cells(this_row, col + col_offset).value
     return h
 
@@ -81,15 +81,25 @@ src_file = data['excel_to_img.input_file']
 
 pic_paths = []
 
+was_calculated = False
+
 for tgt_range_group in tgt_range_groups:
+    print(tgt_range_group)
     with xw.App(visible=False) as app:
         wb = xw.Book(src_file)
-        wb.app.calculate()
-        time.sleep(5)
-        wb.app.calculate()
-        time.sleep(5)
-        wb.save()
-        wb = xw.Book(src_file)
+        if not was_calculated:
+            wb.app.calculate()
+            gts = 15
+            for i in range(gts):
+                time.sleep(1)
+                print(f"Sleeping for {gts - i} seconds...")
+            wb.app.calculate()
+            for i in range(gts):
+                time.sleep(1)
+                print(f"Sleeping for {gts - i} seconds...")
+            wb.save()
+            wb = xw.Book(src_file)
+            was_calculated = True
         for i in range(len(tgt_range_group)):
             print(tgt_range_group[i])
             ws = wb.sheets[tgt_range_group[i][0]]
@@ -120,7 +130,8 @@ for tgt_range_group in tgt_range_groups:
 print(pic_paths)
 print("Time to send the email")
 send_email_with_pics("kevinbarzola@zest.pe", pic_paths)
-send_email_with_pics("joakimbaraka@zest.pe", pic_paths)
+#send_email_with_pics("joakimbaraka@zest.pe", pic_paths)
+#send_email_with_pics("bloomberg@zest.pe", pic_paths)
 
 et = time.time()
 print('Execution time:', et - st, 'seconds')
